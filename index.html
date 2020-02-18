@@ -1,2 +1,100 @@
-<input type='file' id="fileUpload" />
-<canvas id="canvas" width="900" height="600"></canvas>  
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        Max's Meme Generator
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="details">
+            <div class="panel-divide">
+                <div id="meme-panel" class="meme-panel">
+
+                </div>
+                <div class="imageDetails">
+                    <h1 class="main-title">
+                        Max's Meme Generator
+                    </h1>
+                    <p class="intro">
+                        Carefully follow these easy instructions to make memes that will make your friends jealous
+                    </p>
+                    <div class="client-input">
+                        <div class="fileDetails">
+                            <ol class="instructions-list">
+                                <li class="instructions-list">Chose picture you want to meme-ify by uploading picture
+                                    from computer or
+                                    providing image URL!</li>
+                            </ol>
+                            <div class="box">
+                                <div class="text-input">
+                                    <p class="text-block">Upload File</p>
+                                    <input type="file" name="file" id="imageLoader" class="imageLoader" />
+                                    <label for="imageLoader">Image File:</label>
+                                </div>
+                                <div class="text-input">
+                                    <p class="text-block">Image URL</p>
+                                    <input type="text" id="imgURL" class="input-block" placeholder="Link to image" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fileDetails">
+                            <ol class="instructions-list" start="2">
+                                <li class="instructions-list">Add dank meme lines to the top and bottom of your picture!
+                                </li>
+                            </ol>
+                            <div class="textDetails">
+                                <div class="box">
+                                    <div class="text-input">
+                                        <p class="text-block">Top Text</p>
+                                        <input id="textTop" type="text" class="input-block"
+                                            placeholder="(optional top text)" />
+                                    </div>
+                                    <div class="text-input">
+                                        <p class="text-block">Bottom Text</p>
+                                        <input id="textBottom" type="text" class="input-block"
+                                            placeholder="(optional bottom text)" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fileDetails">
+                            <ol class="instructions-list" start="3">
+                                <li class="instructions-list">Push button below to generate your meme!</li>
+                            </ol>
+                            <input type="button" id="memeLoader" class="memeLoader" value="Create Meme!" />
+                        </div>
+                        <div class="fileDetails-last">
+
+                            <ol class="instructions-list" start="4">
+                                <li class="instructions-list">Select memes generated below to delete or download!</li>
+                            </ol>
+                            <div class="download-button">
+                                <input type="button" id="imageDeleter" class="imageDeleter" value="Delete Memes" />
+                                <input type="button" id="imageDownloader" class="imageDownloader"
+                                    value="Download Memes" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="meme-container">
+            <div class="meme-list">
+                <h1 class="meme-title">
+                    Your Meme Library
+                </h1>
+                <div id="imageCanvas"></div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

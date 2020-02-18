@@ -1,0 +1,454 @@
+:root {
+  --color-primary: #2f96eba6;
+  --color-primary-light-1: #9ed2fc71;
+  --color-primary-light-2: #61b8ffe0;
+  --color-primary-dark: #2c8dddec;
+
+  --color-meme-1: #f58a2667;
+  --color-meme-2: #D7A9E3FF;
+  --color-meme-3: #a8d5baff;
+
+  --color-grey-light-1: #faf9f9e8;
+  --color-grey-light-2: #dfddddde;
+  --color-grey-light-3: #cfcecec7;
+  --color-grey-light-4: rgba(172, 172, 172, 0.829);
+
+  --color-grey-dark-1: #333333;
+  --color-grey-dark-2: #777777;
+  --color-grey-dark-3: #999999; 
+
+  --grey-line: 2px solid var(--color-grey-light-2);
+  --light-shadow: 0 2rem 2rem rgba(0, 0, 0, .06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    /* Global Parameters */
+    box-sizing: border-box;
+    
+    /* 1rem = 10px, 10px/16px = 62.5% */
+    font-size: 62.5%; 
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-grey-dark-2);    
+    background-image: linear-gradient(to right bottom, var(--color-meme-1), var(--color-meme-1));
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+
+.main-title {
+  margin-left: 3rem;
+  text-transform: uppercase;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 5rem;
+}
+
+.intro {
+  margin-left: 3rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.instructions {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.instructions-list {
+  text-align: left;
+  margin-bottom: .5rem;
+  margin-left: 1rem;
+  font-size: 1.75rem;
+}
+
+.container {
+  max-width: auto;
+  margin: 3rem 3rem;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--light-shadow);
+
+  min-height: 100rem;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.imageDetails {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.client-input {
+  background-color: var(--color-grey-light-2);
+  padding: 0rem 0 rem 2 rem 0rem;
+  border-radius: 5px;
+}
+
+.fileDetails {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  font-size: 1.5rem;
+  padding: 2rem 3rem 0rem 3rem;
+
+
+  text-align: center;
+  position: relative;
+  /* width: 45rem; */
+
+  /* Create transition timing for all btn movements (like hover and active) */
+  transition: all .2s;
+}
+
+.fileDetails-last {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  font-size: 1.5rem;
+  padding: 2rem 3rem 0rem 3rem;
+  margin-bottom: 2rem;
+
+  text-align: center;
+  position: relative;
+  /* width: 45rem; */
+
+  /* Create transition timing for all btn movements (like hover and active) */
+  transition: all .2s;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/* Panel Divide */
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+.panel-divide {
+  display: flex;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/* Meme Panel */
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+.meme-panel {
+  display: flex;
+  width: 50rem;
+  padding: 2rem;
+
+  /* Align with right client input panel */
+  align-items: flex-end;
+  height: 70rem;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/* Buttons */
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+.download-button {
+  display: flex;
+}
+
+.imageLoader {
+  /* We want to hide the actual button */
+  margin: 1rem;
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+  z-index: -1;
+}
+
+.imageLoader + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: var(--color-primary-light-2);
+  cursor: pointer;
+
+  display: inline-block;  
+  border-radius: 10px;
+  width: 18rem;
+  padding: .3rem .5rem .5rem .5rem;
+
+  /* Create transition timing for all btn movements (like hover and active) */
+  transition: all .1s;
+
+}
+
+/* .imageLoader:focus + label, */
+.imageLoader + label:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* When button is clicked */
+.imageLoader + label:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 3px rgba(0,0,0,.2);   
+}
+
+.imageLoader + label::after {
+  content: "";
+  transition: all .4s;
+}
+
+.imageLoader + label:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.memeLoader {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: var(--color-primary-light-2);
+  cursor: pointer;
+
+  display: inline-block;  
+  border-radius: 10px;
+  width: 18rem;
+  padding: .8rem .5rem .6rem .5rem;
+
+  /* Align slightly to the right */
+  margin-left: 1.25rem;
+
+  /* Create transition timing for all btn movements (like hover and active) */
+  transition: all .1s;
+}
+
+.memeLoader:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* When button is clicked */
+.memeLoader:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 3px rgba(0,0,0,.2);   
+}
+
+.memeLoader::after {
+  content: "";
+  transition: all .4s;
+}
+
+.memeLoader:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.imageDeleter {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(255, 95, 21);
+  cursor: pointer;
+
+  display: inline-block;  
+  border-radius: 10px;
+  width: 18rem;
+  padding: .8rem .5rem .6rem .5rem;
+
+  /* Align slightly to the right */
+  margin-left: 1.25rem;
+
+  /* Create transition timing for all btn movements (like hover and active) */
+  transition: all .1s;
+}
+
+.imageDeleter:hover {
+  transform: translateY(-3px);
+  background-color: rgb(230, 63, 33);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* When button is clicked */
+.imageDeleter:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 3px rgba(0,0,0,.2);   
+}
+
+.imageDeleter::after {
+  content: "";
+  transition: all .4s;
+}
+
+.imageDeleter:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.imageDownloader {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(60, 202, 60);
+  cursor: pointer;
+
+  display: inline-block;  
+  border-radius: 10px;
+  width: 18rem;
+  padding: .8rem .5rem .6rem .5rem;
+  margin-left: 3rem;
+
+  /* Create transition timing for all btn movements (like hover and active) */
+  transition: all .1s;
+}
+
+.imageDownloader:hover {
+  transform: translateY(-3px);
+  background-color: rgb(52, 175, 52);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* When button is clicked */
+.imageDownloader:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 3px rgba(0,0,0,.2);   
+}
+
+.imageDownloader::after {
+  content: "";
+  transition: all .4s;
+}
+
+.imageDownloader:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/* Meme List and Canvas */
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+.textDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.meme-container {
+  padding: 1rem 2rem 1 rem 2 rem; 
+}
+
+.meme-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--color-grey-dark-2);
+}
+
+.meme-list {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--color-grey-light-3);
+  border-radius: 10px;
+  min-height: 40rem;
+}
+
+.memeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin: 1rem;
+
+  background-color: var(--color-meme-3);
+
+  border: 1px solid var(--color-grey-light-3);
+  border-radius: 10px;
+
+  /* Makes sure height of memeBox is not larger than picture (accounts padding) */
+  height: fit-content;
+
+  box-shadow: 3px 3px 3px rgba(0,0,0,.2);   
+
+}
+
+#imageCanvas {
+  display: flex;
+  padding: 2rem;
+  /* We want the memes to wrap*/
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.canvasBox {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.canvas {
+  border: 5px solid white;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.text-input {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.text-block {
+  width: 10rem;
+  text-align: right;
+
+  /* This line allows you to vertically align text */
+  margin: auto;
+  margin-right: 2rem;
+}
+
+.input-block {
+  width: 30rem;
+  background-color: var(--color-primary-light-1);
+  padding: 1rem;
+  color: var(--color-grey-dark-1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.25rem;
+}
+
+.checkbox {
+  margin-top: 2rem;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+.selectText {
+  font-size: 1.75rem;
+}
