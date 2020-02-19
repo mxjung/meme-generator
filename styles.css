@@ -84,6 +84,7 @@ body {
   box-shadow: var(--light-shadow);
 
   min-height: 100rem;
+  min-width: 100rem;
   padding: 2rem;
 
   display: flex;
