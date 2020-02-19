@@ -144,7 +144,6 @@ function draw() {
     canvas.width = 300;
     canvas.height = 300 * (img.height / img.width);
 
-
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
     var temp_textSizeTop = textSizeTop / 100 * canvas.width;
@@ -207,13 +206,10 @@ CanvasRenderingContext2D.prototype.drawText = function (str, x, y, w, lh, method
     // calculate recommended line breaks
     // split between the words
     for (var i = 0; i < textPartsNo; i++) {
-
         // clear the testline for the next manually broken line
         currLine = '';
-
         for (var j = 0; j < words[i].length; j++) {
             testLine = currLine + words[i][j] + ' ';
-
             // check if the testLine is of good width
             if (this.measureText(testLine).width > w && j > 0) {
                 textParts.push(currLine);
